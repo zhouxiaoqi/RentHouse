@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.renthouse.dao.UserDao">
+	<resultMap type="User" id="UserMap">
+		<id column="u_id" property="uid"/>
+		<result column="u_username" property="username"/>
+		<result column="u_password" property="password"/>
+	</resultMap>
+	
+	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="uid">
+		<!-- <selectKey resultType="int" order="AFTER" keyProperty="uid">
+			select last_insert_id() as uid
+		</selectKey> -->
+		insert 
+		into renthouse.db_user(u_id,u_username,u_password)
+		values(null,#{username},#{password})
+	</insert>
+	
+	<select id="validaeUser" parameterType="String" resultMap="UserMap">
+		select *
+		from renthouse.db_user
+		where u_username = #{username}
+	</select>
+</mapper> 

@@ -1,27 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>宜客租房</title>
-<script src="../static/jquery/jquery-3.1.0.min.js"></script>
-<script src="../static/swiper/swiper.jquery.min.js"></script>
-<script src="../static/bootstrap/bootstrap.min.js"></script>
-<script src="../static/vue/vue.js"></script>
-<script src="../static/js/index.js"></script>
+<script src="static/jquery/jquery-3.1.0.min.js"></script>
+<script src="static/swiper/swiper.jquery.min.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
+<script src="static/vue/vue.js"></script>
+<script src="static/js/index.js"></script>
 <link rel="stylesheet"
-	href="../static/bootstrap/bootstrap_simple.min.css">
-<link rel="stylesheet" href="../static/swiper/swiper.min.css" />
-<link rel="stylesheet" href="../static/simplegrid/simplegrid.css" />
+	href="static/bootstrap/bootstrap_simple.min.css">
+<link rel="stylesheet" href="static/swiper/swiper.min.css" />
+<link rel="stylesheet" href="static/simplegrid/simplegrid.css" />
 <link rel="stylesheet"
-	href="../static/font-awesome/font-awesome.min.css" />
-<link rel="stylesheet" href="../static/css/index.css" />
+	href="static/font-awesome/font-awesome.min.css" />
+<link rel="stylesheet" href="static/css/index.css" />
 </head>
 <body>
 
-	<jsp:include page="../common/header.jsp"/>
+	<jsp:include page="../common/header.jsp" />
 
 	<!--banner-->
 	<div class="grid-fluid ">
@@ -36,12 +42,12 @@
 							</p>
 						</div>
 					</div>
-					<img src="../static/image/banner1.jpg" class=" swiper-slide"
-						alt="Image"> <img src="../static/image/banner2.jpeg"
+					<img src="static/image/banner1.jpg" class=" swiper-slide"
+						alt="Image"> <img src="static/image/banner2.jpeg"
 						class="swiper-slide" alt="Image"> <img
-						src="../static/image/banner3.jpeg" class="swiper-slide" alt="Image">
-					<img src="../static/image/banner4.jpeg" class=" swiper-slide"
-						alt="Image">
+						src="static/image/banner3.jpeg" class="swiper-slide"
+						alt="Image"> <img src="static/image/banner4.jpeg"
+						class=" swiper-slide" alt="Image">
 				</div>
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
@@ -142,7 +148,7 @@
 				<div class="house">
 					<div class="col-3-12">
 						<div class="house-img">
-							<img src="../static/image/house.jpg" alt="" />
+							<img src="static/image/house.jpg" alt="" />
 						</div>
 					</div>
 					<div class="col-9-12">
@@ -171,7 +177,7 @@
 				<div class="house">
 					<div class="col-3-12">
 						<div class="house-img">
-							<img src="../static/image/house.jpg" alt="" />
+							<img src="static/image/house.jpg" alt="" />
 						</div>
 					</div>
 					<div class="col-9-12">
@@ -200,7 +206,7 @@
 				<div class="house">
 					<div class="col-3-12">
 						<div class="house-img">
-							<img src="../static/image/house.jpg" alt="" />
+							<img src="static/image/house.jpg" alt="" />
 						</div>
 					</div>
 					<div class="col-9-12">
@@ -294,6 +300,6 @@
 		</div>
 	</div>
 
-	<jsp:include page="../common/footer.jsp"/>
+	<jsp:include page="../common/footer.jsp" />
 </body>
 </html>

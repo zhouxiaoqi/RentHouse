@@ -1,31 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>发布房源</title>
-<script src="../static/jquery/jquery-3.1.0.min.js"></script>
-<script src="../static/bootstrap/bootstrap.min.js"></script>
-<script src="../static/vue/vue.js"></script>
-<script src="../static/jqueryui/jquery-ui.js"></script>
-<script src="../static/js/releasehouse.js"></script>
-<link rel="stylesheet"
-	href="../static/bootstrap/bootstrap_simple.min.css">
-<link rel="stylesheet" href="../static/jqueryui/jquery-ui.css" />
-<link rel="stylesheet" href="../static/simplegrid/simplegrid.css" />
-<link rel="stylesheet"
-	href="../static/font-awesome/font-awesome.min.css" />
-<link rel="stylesheet" href="../static/css/releasehouse.css" />
+<script src="static/jquery/jquery-3.1.0.min.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
+<script src="static/vue/vue.js"></script>
+<script src="static/vue/vue-resource.js"></script>
+<script src="static/jqueryui/jquery-ui.js"></script>
+<script src="static/js/releasehouse.js"></script>
+<link rel="stylesheet" href="static/bootstrap/bootstrap_simple.min.css">
+<link rel="stylesheet" href="static/jqueryui/jquery-ui.css" />
+<link rel="stylesheet" href="static/simplegrid/simplegrid.css" />
+<link rel="stylesheet" href="static/font-awesome/font-awesome.min.css" />
+<link rel="stylesheet" href="static/css/releasehouse.css" />
 </head>
 <body>
 	<div class="bgimg">
-		<img src="../static/image/releasehouse.jpeg" alt="" width="100%"
+		<img src="static/image/releasehouse.jpeg" alt="" width="100%"
 			height="100%">
 	</div>
 	<div class="mask">
-	<jsp:include page="../common/header.jsp"/>
+		<jsp:include page="../common/header.jsp" />
 		<div class="grid-fluid" style="margin-top: 20px;">
 			<div class="col-6-12 push-6-12">
 				<div class="release-house">
@@ -38,16 +43,16 @@
 						<form action="#" method="post">
 							<div class="form-group house-location">
 								<label for=""><i>*</i>房源地区</label><br /> <select name=""
-									class="form-control input-sm" id="province">
-									<option value="北京">北京</option>
-									<option value="上海">上海</option>
-									<option value="广东">广东</option>
-									<option value="成都">成都</option>
-									<option value="重庆">重庆</option>
-									<option value="安徽">安徽</option>
-									<option value="内蒙">内蒙</option>
+									class="form-control input-sm" id="province" v-on:change="getcity">
+									<option value="">请选择</option>
+									<option v-for="province in provinces" v-bind:value="province.pid">
+										{{province.pname}}
+									</option>
 								</select> <select name="" class="form-control input-sm" id="city">
-									<option value="昌平">昌平</option>
+									<option value="">请选择</option>
+									<option v-for="city in cities" v-bind:value="city.cid">
+										{{city.cname}}
+									</option>
 								</select>
 							</div>
 							<br />
@@ -170,7 +175,7 @@
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../common/footer.jsp"/>
+		<jsp:include page="../common/footer.jsp" />
 	</div>
 </body>
 </html>

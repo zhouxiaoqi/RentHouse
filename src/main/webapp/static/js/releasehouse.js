@@ -5,25 +5,30 @@ $(function($) {
 			hidefile: false,
 			warntip: false,
 			warninfo: "",
-			/** img1 ~ img5 :五张预览图路径存放*/
+			/** img1 ~ img5 :五张预览图路径存放 */
 			img1: "",
 			img2: "",
 			img3: "",
 			img4: "",
 			img5: "",
-			/** hide1 ~ hide5 : 加号➕隐藏*/
+			/** hide1 ~ hide5 : 加号➕隐藏 */
 			hide1: true,
 			hide2: true,
 			hide3: true,
 			hide4: true,
 			hide5: true,
-			/** toggleimg1 ~ toggleimg5 : 预览图显示或隐藏*/
+			/** toggleimg1 ~ toggleimg5 : 预览图显示或隐藏 */
 			toggleimg1: false,
 			toggleimg2: false,
 			toggleimg3: false,
 			toggleimg4: false,
 			toggleimg5: false,
-
+			getallprovinceapi:'province/getallprovince.do',
+			provinces:[],		// 用来存放省的json
+			cities:[]  // 用来存放城市json
+		},
+		created(){
+			this.request();
 		},
 		methods: {
 			clickpic1: function() {
@@ -136,11 +141,27 @@ $(function($) {
 					this.warntip = false;
 					this.warninfo = ""
 				}
-			}
+			},
+			getcity:function(){
+				var me = this
+				var theid =$("#province").val();
+				this.$http.post('city/getthiscities'+ '/' + theid + '.do').then((response)=>{
+					me.cities = response.data;
+					console.log(me.cities);
+				})
+			},
+			request(){
+				var me = this;
+				this.$http.post(this.getallprovinceapi).then((response)=>{
+					me.provinces = response.data;
+					console.log(me.provinces);
+				})
+			},
+			
 		}
 	})
 
-	//建立一個可存取到該file的url
+	// 建立一個可存取到該file的url
 	function getObjectURL(file) {
 		var url = null;
 		if(window.createObjectURL != undefined) { // basic

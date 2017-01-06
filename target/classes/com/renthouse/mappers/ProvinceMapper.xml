@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.renthouse.dao.ProvinceDao">
+	<resultMap type="Province" id="ProvinceMap">
+		<id column="p_id" property="pid"/>
+		<result column="p_name" property="pname"/>
+	</resultMap>
+	
+	<select id="getAllProvince" resultMap="ProvinceMap">
+		select *
+		from renthouse.db_province
+	</select>
+</mapper>

@@ -10,6 +10,7 @@
 <script src="../static/bootstrap/bootstrap.min.js"></script>
 <script src="../static/vue/vue.js"></script>
 <script src="../static/jqueryui/jquery-ui.js"></script>
+<script src="../static/js/releasewantrent.js"></script>
 <link rel="stylesheet"
 	href="../static/bootstrap/bootstrap_simple.min.css">
 <link rel="stylesheet" href="../static/jqueryui/jquery-ui.css" />
@@ -24,24 +25,26 @@
 	</div>
 
 	<div class="mask">
-	<jsp:include page="../common/header.jsp"/>
+		<jsp:include page="../common/header.jsp" />
 		<div class="col-6-12 push-1-12">
-			<div class="wantrent">
+			<div class="wantrent" id="wantrent">
 				<div class="wantrent-title">
 					<h3>发布求租信息</h3>
 				</div>
+				<div class="alert alert-danger" role="alert" v-show="warntip"
+					style="text-align: center;">{{warninfo}}</div>
 				<div class="rent-form">
 					<form action="#" method="post">
 						<div class="wantrent-location">
 							<label for=""><i>*</i>理想位置：</label> <select name=""
-								class="form-control input-sm">
+								class="form-control input-sm" id="province">
 								<option value="">请选择</option>
 								<option value="">北京</option>
 								<option value="">重庆</option>
 								<option value="">上海</option>
 								<option value="">深圳</option>
 								<option value="">四川</option>
-							</select> <select name="" class="form-control input-sm">
+							</select> <select name="" class="form-control input-sm" id="city">
 								<option value="">请选择</option>
 								<option value="">朝阳区</option>
 							</select>
@@ -49,33 +52,33 @@
 						<br />
 						<div class="house-type">
 							<label for=""><i>*</i>户型要求：</label> <input type="text" name=""
-								id="" class="form-control input-sm" />&nbsp;<span>室</span> <input
-								type="text" name="" id="" class="form-control input-sm" />&nbsp;<span>厅</span>
+								id="room" class="form-control input-sm" />&nbsp;<span>室</span> <input
+								type="text" name="" id="office" class="form-control input-sm" />&nbsp;<span>厅</span>
 						</div>
 						<br />
 						<div class="rent-type">
 							<label for=""><i>*</i>租赁方式：</label> <select name=""
-								class="form-control input-sm">
-								<option value="">整租</option>
-								<option value="">合租</option>
-								<option value="">可整租可合租</option>
+								class="form-control input-sm" id="rent-type">
+								<option value="整租">整租</option>
+								<option value="合租">合租</option>
+								<option value="可整租可合租">可整租可合租</option>
 							</select>
 						</div>
 						<br />
 						<div class="renovation-type">
 							<label for=""><i>*</i>装修条件：</label> <select name=""
-								class="form-control input-sm">
-								<option value="">毛坯房</option>
-								<option value="">普通装修</option>
-								<option value="">精装修</option>
-								<option value="">豪华装修</option>
-								<option value="">不限</option>
+								class="form-control input-sm"id="renovation-type">
+								<option value="毛坯房">毛坯房</option>
+								<option value="普通装修">普通装修</option>
+								<option value="精装修">精装修</option>
+								<option value="豪华装修">豪华装修</option>
+								<option value="不限">不限</option>
 							</select>
 						</div>
 						<br />
 						<div class="house-orientation">
 							<label for=""><i>*</i>房屋朝向：</label> <select name=""
-								class="form-control input-sm">
+								class="form-control input-sm" id="orientation">
 								<option value="">房屋朝向</option>
 								<option value="东">东</option>
 								<option value="南">南</option>
@@ -88,25 +91,30 @@
 								<option value="不限">不限</option>
 							</select>
 						</div>
+						<br/>
+						<div class="house-price"> 
+							<label for=""><i>*</i>期望租金：</label>
+							<input id="house-price" type="text" class="form-control input-sm"/>&nbsp;/月
+						</div>
 						<hr />
 						<div class="your-name">
 							<label for=""><i>*</i>您的姓名：</label> <input type="text"
-								class="form-control input-sm" />
+								class="form-control input-sm" id="your-name"/>
 						</div>
 						<br />
 						<div class="your-telnum">
 							<label for=""><i>*</i>联系方式：</label> <input type="text"
-								class="form-control input-sm" />
+								class="form-control input-sm" id="your-contact"/>
 						</div>
 						<br />
 						<div class="sub-btn">
-							<button class="btn btn-danger">发布需求</button>
+							<button type="button" class="btn btn-danger" v-on:click="submit">发布需求</button>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		<jsp:include page="../common/footer.jsp"/>
+		<jsp:include page="../common/footer.jsp" />
 	</div>
 </body>
 </html>

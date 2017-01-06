@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.renthouse.dao.CityDao">
+	<resultMap type="City" id="CityMap">
+		<id column="c_id" property="cid"/>
+		<result column="c_name" property="cname"/>
+		<association property="province" javaType="Province">
+			<id column="p_id" property="pid"/>
+			<result column="p_name" property="pname"/>
+		</association>
+	</resultMap>
+	
+	<select id="gettheCities" parameterType="int" resultMap="CityMap">
+		select * 
+		from renthouse.db_city
+		where province_id = #{pid}
+	</select>
+</mapper>

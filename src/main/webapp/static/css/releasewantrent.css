@@ -58,7 +58,8 @@ body {
 .renovation-type,
 .house-orientation,
 .your-name,
-.your-telnum{
+.your-telnum,
+.house-price{
 	display: flex;
 }
 .wantrent-location select{
@@ -77,7 +78,8 @@ body {
 	width: 130px;
 	margin-left: 20px;
 }
-.your-name input{
+.your-name input,
+.house-price input{
 	width: 130px;
 	margin-left: 20px;
 }

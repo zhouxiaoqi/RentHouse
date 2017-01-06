@@ -32,7 +32,26 @@ $(function($) {
 				}else if(r_password != r_repassword){
 					this.togglewarn = true;
 					this.warnmsg = "两次密码不一致";
+				}else{
+					this.togglewarn = false;
+					this.warnmsg = "";
+					$("#regist-form").submit();
+					
 				}
+			},
+			validateusername:function(){
+				var me = this;
+				var username = $("#r-username").val();
+				this.$http.post("user/validate" + '/' + username + '.do').then((response)=>{
+					console.log(response.data);
+					if(response.data === 0){
+						this.togglewarn = true;
+						this.warnmsg = "该用户名已经被注册";
+					}else{
+						this.togglewarn = false;
+						this.warnmsg = "";
+					}
+				});
 			}
 		}
 	})

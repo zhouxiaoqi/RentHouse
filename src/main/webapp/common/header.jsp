@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<base href="<%=basePath%>">
 <title>Insert title here</title>
 <style type="text/css">
 /*head*/
@@ -53,14 +60,21 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="active"><a href="#">我要出租&nbsp;<i
 							class="fa fa-home"></i></a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">加个小括号 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">我的收藏</a></li>
-							<li><a href="#">我的消息&nbsp;<span class="badge">42</span></a>
-							</li>
-							<li><a href="loginregist.html">退出登陆</a></li>
-						</ul></li>
+					<c:choose>
+						<c:when test="${user!=null}">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown">${user.username } <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="">我的收藏</a></li>
+									<li><a href="#">我的消息&nbsp;<span class="badge">42</span></a>
+									</li>
+									<li><a href="aa/test.html">退出登陆</a></li>
+								</ul></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="#">登陆或注册</a></li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
