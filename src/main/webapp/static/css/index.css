@@ -1,0 +1,208 @@
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	box-sizing: border-box;
+ }
+ 
+ html,
+ body {
+ 	/*font-family: Fira Code, Iosevka, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+ }
+ 
+ /*banner*/
+ 
+ .img-mask {
+ 	position: fixed;
+ 	top: 0px;
+ 	right: 0px;
+ 	bottom: 0px;
+ 	filter: alpha(opacity=90);
+ 	z-index: 1002;
+ 	left: 0px;
+ 	background-color: rgba(0, 0, 0, .3);
+ 	overflow: hidden;
+ }
+ 
+ .something-tosay {
+ 	padding-top: 30px;
+ }
+ 
+ .something-tosay h1 {
+ 	text-align: center;
+ 	color: #E3EEEC;
+ }
+ 
+ .something-tosay p {
+ 	margin-top: 90px;
+ 	text-align: center;
+ 	color: #E3EEEC;
+ 	font-size: 2.0em;
+ }
+ /*middle-nav*/
+ 
+ .middle-nav {
+ 	margin-top: 15px;
+ 	border: 1px solid #E3EEEC;
+ 	padding-top: 13px;
+ 	padding-left: 13px;
+ 	padding-bottom: 13px;
+ }
+ 
+ .middle-nav .region .region-title,
+ .middle-nav .price .price-title,
+ .middle-nav .type .type-title,
+ .middle-nav .more .more-title {
+ 	float: left;
+ }
+ 
+ .middle-nav .region-content a,
+ .middle-nav .price-content a,
+ .middle-nav .type-content a,
+ .middle-nav .more-content select {
+ 	color: #2C3E50;
+ 	position: relative;
+ 	margin-left: 16px;
+ }
+  .middle-nav .more-content .select-group button{
+  	margin-left: 20px;
+  	width: 70px;
+  }
+ .middle-nav .more-content .select-group{
+ 	display: flex;
+ }
+ 
+  .middle-nav .more-content select{
+  	width: 100px;
+  }
+ 
+ .middle-nav .region-content a:hover,
+ .middle-nav .price-content a:hover,
+ .middle-nav .type-content a:hover {
+ 	background: #EB5055;
+ 	color: #F6F9F9;
+ }
+ 
+ .middle-nav hr {
+ 	border: 1px dotted #CECECC;
+ }
+ 
+ .tip span {
+ 	font-size: 13px;
+ }
+ 
+ .tip span strong {
+ 	color: #EB5055;
+ }
+ 
+ .house-list {
+ 	margin-top: 20px;
+ }
+ 
+ .house-list .house {
+ 	padding-left: 13px;
+ 	padding-top: 13px;
+ }
+ 
+ .house {
+ 	width: 100%;
+ 	height: 200px;
+ 	border-top: 1px solid #22B24C;
+ }
+ 
+ .house .house-img img {
+ 	width: 100%;
+ 	height: 160px;
+ 	overflow: hidden;
+ }
+ 
+ .house .house-title h4 {
+ 	color: #2C3E50;
+ }
+ 
+ .house .house-title h4:hover {
+ 	color: #EB5055;
+ }
+ 
+ .house .house-info {
+ 	margin-top: 33px;
+ }
+ 
+ .house-info span {
+ 	font-size: 16px;
+ }
+ 
+ .house-place span {
+ 	font-size: 14px;
+ }
+ 
+ .house-price span {
+ 	float: right;
+ 	font-size: 2.0em;
+ 	color: #EB5055;
+ }
+ 
+ .user-name {
+ 	margin-top: 13px;
+ }
+ 
+ .location {
+ 	border: 1px solid #CECECC;
+ 	margin-top: 20px;
+ 	padding-bottom: 20px;
+ 	padding-top: 13px;
+ 	border-radius: 5px;
+ 	text-align: center;
+ }
+ 
+ .location button {
+ 	margin-top: 10px;
+ }
+ 
+ .location h5 {
+ 	text-align: center;
+ 	color: #2C3E50;
+ }
+ 
+ .location h5 strong {
+ 	color: #EB5055;
+ }
+ 
+ .mask {
+ 	position: fixed;
+ 	top: 0px;
+ 	right: 0px;
+ 	bottom: 0px;
+ 	filter: alpha(opacity=90);
+ 	z-index: 1003;
+ 	left: 0px;
+ 	background-color: rgba(0, 0, 0, .3);
+ 	overflow: hidden;
+ }
+ 
+ .city-list {
+ 	margin-top: 40px;
+ 	background: #F6F9F9;
+ 	padding-top: 20px;
+ 	padding-left: 10px;
+ }
+ 
+ .northeast-title,
+ .east-title,
+ .south-title,
+ .midwest-title {
+ 	float: left;
+ }
+ 
+ .cities-link a {
+ 	position: relative;
+ 	padding-left: 10px;
+ 	color: #2394BC;
+ }
+ .close-btn{
+ 	margin-top: 30px;
+ 	text-align: center;
+ 	padding-bottom: 20px;
+ }
+ 

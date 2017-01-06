@@ -1,0 +1,146 @@
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	box-sizing: border-box;
+ }
+ 
+ html,
+ body {
+ 	/*font-family: Fira Code, Iosevka, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+ }
+ 
+ .house-detail {
+ 	margin-top: 30px;
+ }
+ 
+ .house-detail .house-name h4,
+ .house-source .title h4 {
+ 	color: #2C3E50;
+ }
+ 
+ .house-detail .houseimg-list {
+ 	border: 1px solid #CECECC;
+ 	border-radius: 5px;
+ 	width: 90%;
+ 	height: 500px;
+ 	padding-top: 15px;
+ }
+ 
+ .houseimg-list img {
+ 	width: 100%;
+ 	height: 470px;
+ 	overflow: hidden;
+ }
+ 
+ .house-source {
+ 	margin-top: 40px;
+ 	margin-bottom: 20px;
+ }
+ 
+ .house-source .house-info {
+ 	border: 1px solid #CECECC;
+ 	border-radius: 5px;
+ 	padding-top: 20px;
+ 	height: 300px;
+ }
+ .house-info .item-all {
+ 	height: 230px;
+ 	border-bottom: 2px solid #10C7A5;
+ }
+ .item-left,
+ .item-right {
+ 	width: 50%;
+ 	float: left;
+ }
+ 
+ .item-left{
+ 	padding-left: 30px;
+ }
+ 
+ 
+ .house-info dt {
+ 	float: left;
+ }
+ 
+ .house-info .price {
+ 	color: #EB5055;
+ }
+ 
+ .house-info .price strong {
+ 	font-size: 1.8em;
+ 	padding-left: 50px;
+ }
+ 
+ .house-info dl dd span {
+ 	color: #2C3E50;
+ 	padding-left: 50px;
+ }
+ 
+ .user-said{
+ 	margin-top: 15px;
+ 	padding-left: 30px;
+ }
+ .user-said .user-title label{
+ 	color: #EB5055;
+ }
+ 
+.user-said .user-title{
+	float: left;
+}
+.user-action{
+	margin-top: 38px;
+}
+.user-action a{
+	background: #FFFFFF;
+	color:#1E1E1E;
+}
+.user-action a:first-child{
+	color: #22B24C;
+}
+.user-action a:first-child:hover{
+	color:#FFFFFF;
+}
+.user-action a:last-child{
+	color: #EB5055;
+	float: right;
+}
+
+.user-action a:last-child:hover{
+	color: #FFFFFF;
+}
+.user-info{
+	margin-top: 10px;
+	border: 1px solid #CECECC;
+	border-radius: 5px;
+	padding-top: 12px;
+}
+.user-info .user-picture{
+	text-align: center;
+}
+.user-info .user-picture img{
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.user-info .user-realname {
+	text-align: center;
+}
+
+.user-info .user-realname span{
+	font-size: 20px;
+	color:#2C3E50;
+}
+.user-info .user-telnum {
+	text-align: center;
+	border: 1px solid #22B24C;
+	border-radius: 6px;
+}
+.user-info .user-telnum span{
+	font-size: 16px;
+	color:#2C3E50;
+	line-height: 10px;
+}
+

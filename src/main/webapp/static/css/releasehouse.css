@@ -1,0 +1,117 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	/*font-family: Fira Code, Iosevka, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+	background: #B7C5C6;
+}
+
+.bgimg {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1002;
+	left: 0px;
+}
+
+.mask {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	filter: alpha(opacity=60);
+	z-index: 1002;
+	left: 0px;
+	background-color: rgba(0, 0, 0, .3);
+	overflow: scroll;
+}
+
+.release-house {
+	width: 80%;
+	height: 1100px;
+	background: #FFFFFF;
+	margin: 0 auto;
+}
+
+.release-house .tip {
+	background: #22B24C;
+	text-align: center;
+}
+
+.release-house .tip span {
+	color: #FFFFFF;
+}
+
+.release-form {
+	padding-top: 20px;
+	padding-bottom: 30px;
+	width: 80%;
+	margin: 0 auto;
+}
+.release-form i{
+	color: red;
+}
+.release-form .form-control{
+	border-radius: 0px;
+}
+
+.release-form .house-location select{
+	width: 50%;
+	float: left;
+}
+.release-form .area input{
+	width: 40%;
+}
+.house-type,
+.house-price,
+.house-floor,
+.house-else {
+	display: flex;
+}
+.release-form .house-type input,
+.release-form .house-price input,
+.release-form .house-floor input,
+.release-form .house-else select{
+	width: 30%;
+/*	float: left;*/
+}
+.house-picture{
+	height: 110px;
+}
+.house-picture img{
+	height: 80px;
+	width: 80px;
+	overflow: hidden;
+}
+.release-form .picture1,
+.release-form .picture2,
+.release-form .picture3,
+.release-form .picture4,
+.release-form .picture5{
+	float: left;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #E1E1E1;
+	margin-left: 9px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.picture1 span,
+.picture2 span,
+.picture3 span,
+.picture4 span,
+.picture5 span{
+	font-size: 3.0em;
+}
+
+hr{
+	border-color: #CECECC;
+}

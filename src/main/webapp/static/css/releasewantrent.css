@@ -1,0 +1,94 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	/*font-family: Fira Code, Iosevka, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+	background: #B7C5C6;
+}
+
+.bgimg {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1002;
+	left: 0px;
+}
+
+.mask {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	filter: alpha(opacity=60);
+	z-index: 1002;
+	left: 0px;
+	background-color: rgba(0, 0, 0, .1);
+	overflow: scroll;
+}
+
+.wantrent{
+	width: 80%;
+	margin-top: 20px;
+	background: #FFFFFF;
+	border: 1px solid #E1E1E1;
+}
+.wantrent-title h3{
+	text-align: center;
+	color: #00AC90;
+}
+.rent-form{
+	width: 80%;
+	margin:0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.rent-form i{
+	color:red;
+}
+.wantrent-location,
+.house-type,
+.rent-type,
+.renovation-type,
+.house-orientation,
+.your-name,
+.your-telnum{
+	display: flex;
+}
+.wantrent-location select{
+	width: 110px;
+	margin-left: 20px;
+}
+
+.house-type input{
+	margin-left: 20px;
+	width: 110px;
+}
+
+.rent-type select,
+.renovation-type select,
+.house-orientation select{
+	width: 130px;
+	margin-left: 20px;
+}
+.your-name input{
+	width: 130px;
+	margin-left: 20px;
+}
+.your-telnum input{
+	width: 200px;
+	margin-left: 20px;
+}
+.sub-btn{
+	text-align: center;
+}
+
+.sub-btn button{
+	width: 200px;	
+}
