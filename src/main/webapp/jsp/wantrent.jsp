@@ -1,21 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>求租专区</title>
-<script src="../static/jquery/jquery-3.1.0.min.js"></script>
-<script src="../static/bootstrap/bootstrap.min.js"></script>
-<script src="../static/vue/vue.js"></script>
-<script src="../static/js/wantrent.js"></script>
+<script src="static/jquery/jquery-3.1.0.min.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
+<script src="static/vue/vue.js"></script>
+<script src="static/js/wantrent.js"></script>
 <link rel="stylesheet"
-	href="../static/bootstrap/bootstrap_simple.min.css">
-<link rel="stylesheet" href="../static/simplegrid/simplegrid.css" />
+	href="static/bootstrap/bootstrap_simple.min.css">
+<link rel="stylesheet" href="static/simplegrid/simplegrid.css" />
 <link rel="stylesheet"
-	href="../static/font-awesome/font-awesome.min.css" />
-<link rel="stylesheet" href="../static/css/wantrent.css" />
+	href="static/font-awesome/font-awesome.min.css" />
+<link rel="stylesheet" href="static/css/wantrent.css" />
 </head>
 <body>
 	<jsp:include page="../common/header.jsp"/>
@@ -97,7 +103,7 @@
 				<div class="cent">
 					<div class="col-3-12">
 						<div class="header-img">
-							<img src="../static/image/user_128px.png" alt="" />
+							<img src="static/image/user_128px.png" alt="" />
 						</div>
 					</div>
 					<div class="col-9-12">
@@ -123,7 +129,7 @@
 
 			<div class="col-2-12">
 				<div class="release-rent">
-					<a href="#" class="btn btn-danger btn-lg">发布求租信息</a>
+					<a href="releasewantrent/gotowantrent.do" class="btn btn-danger btn-lg">发布求租信息</a>
 				</div>
 				<div class="location" id="location">
 					<h5>

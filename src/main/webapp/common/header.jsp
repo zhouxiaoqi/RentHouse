@@ -48,7 +48,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav" style="padding-left: 50px;">
-					<li class="active"><a href="#">求租专区</a></li>
+					<li class="active"><a href="releasewantrent/wantrent.do">求租专区</a></li>
 				</ul>
 				<form class="navbar-form navbar-left" role="search">
 					<div class="form-group">
@@ -58,7 +58,7 @@
 					<button type="submit" class="btn btn-success">搜索房源</button>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="#">我要出租&nbsp;<i
+					<li class="active"><a href="releasehouse/gotoinserthouse.do">我要出租&nbsp;<i
 							class="fa fa-home"></i></a></li>
 					<c:choose>
 						<c:when test="${user!=null}">
@@ -68,11 +68,11 @@
 									<li><a href="">我的收藏</a></li>
 									<li><a href="#">我的消息&nbsp;<span class="badge">42</span></a>
 									</li>
-									<li><a href="aa/test.html">退出登陆</a></li>
+									<li><a href="user/logout.do">退出登陆</a></li>
 								</ul></li>
 						</c:when>
 						<c:otherwise>
-							<li><a href="#">登陆或注册</a></li>
+							<li><a href="user/loginregist.do">登陆或注册</a></li>
 						</c:otherwise>
 					</c:choose>
 				</ul>

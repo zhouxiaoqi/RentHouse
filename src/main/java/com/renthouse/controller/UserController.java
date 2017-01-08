@@ -1,5 +1,6 @@
 package com.renthouse.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,36 @@ public class UserController {
 		}else{
 			return 0;
 		}
+	}
+	
+	@ResponseBody
+	@RequestMapping("/login")
+	public int login(String username,String password,HttpSession session){	
+		System.out.println(username + password);
+		User user = userService.login(username, password);
+		session.setAttribute("user", user);
+		if(user == null){
+			return 0;
+		}
+		else{
+			return 1;
+		}
+		
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		session.removeAttribute("user");
+		return "jsp/loginregist";
+	}
+	
+	@RequestMapping("/loginregist")
+	public String loginregist(){
+		return "jsp/loginregist";
+	}
+	
+	@RequestMapping("/index")
+	public String main(){
+		return "jsp/index";
 	}
 }

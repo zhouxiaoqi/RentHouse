@@ -1,5 +1,5 @@
 $(function($) {
-	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/; //验证邮箱正则
+	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((.[a-zA-Z0-9_-]{2,3}){1,2})$/; // 验证邮箱正则
 	var mask = new Vue({
 		el: "#maskcontent",
 		data: {
@@ -13,6 +13,7 @@ $(function($) {
 				this.warnmsg = "";
 			},
 			login:function(){
+				var me = this;
 				var l_username = $("#l-username").val();
 				var l_password = $("#l-password").val();
 				if(l_username === '' || l_password === ''){
@@ -20,6 +21,16 @@ $(function($) {
 					this.warnmsg = "账号或密码错误";
 				}else{
 					this.togglewarn = false;
+					$.post("user/login.do",{username:l_username,password:l_password},function(data){
+						if(data === 1){
+							me.togglewarn = true;
+							me.warnmsg = "登陆成功";
+							window.location.href="user/index.do"
+						}else{
+							me.togglewarn = true;
+							me.warnmsg = "账号或密码错误";
+						}
+					})
 				}
 			},
 			regist:function(){
@@ -36,7 +47,6 @@ $(function($) {
 					this.togglewarn = false;
 					this.warnmsg = "";
 					$("#regist-form").submit();
-					
 				}
 			},
 			validateusername:function(){

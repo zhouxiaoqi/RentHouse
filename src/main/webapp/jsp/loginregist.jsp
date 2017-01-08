@@ -46,11 +46,11 @@
 							<form action="" method="post">
 								<div class="form-group">
 									<label for="" class="control-label">用户名/UserName</label> <input
-										type="text" class="form-control" name="" id="l-username" />
+										type="text" class="form-control" name="username" id="l-username" />
 								</div>
 								<div class="form-group">
 									<label for="" class="control-label">密码/Password</label> <input
-										type="password" class="form-control" name="" id="l-password" />
+										type="password" class="form-control" name="password" id="l-password" />
 								</div>
 								<div class="submit-btn">
 									<button type="button" class="btn btn-success"

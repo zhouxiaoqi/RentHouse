@@ -8,6 +8,11 @@ $(function($) {
 		data : {
 			warntip : false,
 			warninfo : "",
+			provinces:[],
+			cities:[]
+		},
+		created(){
+			this.request();
 		},
 		methods : {
 			submit : function() {
@@ -30,14 +35,30 @@ $(function($) {
 					this.warntip = true;
 					this.warninfo = "请完整填写信息";
 
-				} else if (!reg.test(telnum)) {
-					this.warntip = true;
-					this.warninfo = "手机号码格式不对";
+//				} else if (!reg.test(telnum)) {
+//					this.warntip = true;
+//					this.warninfo = "手机号码格式不对";
 				} else {
 					this.warntip = false;
 					this.warninfo = "";
+					$("#myform").submit();
 				}
-			}
+			},
+			request(){
+				var me = this;
+				this.$http.post('province/getallprovince.do').then((response)=>{
+					me.provinces = response.data;
+					console.log(me.provinces);
+				})
+			},
+			getcity:function(){
+				var me = this
+				var theid =$("#province").val();
+				this.$http.post('city/getthiscities'+ '/' + theid + '.do').then((response)=>{
+					me.cities = response.data;
+					console.log(me.cities);
+				})
+			},
 		}
 	})
 })

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.renthouse.dao.ReleaseWantRentDao">
+	<resultMap type="WantRent" id="WantRentMap">
+		<id column="w_id" property="wid"/>
+		<result column="w_housetype" property="housetype"/>
+		<result column="w_renttype" property="renttype"/>
+		<result column="w_renovationtype" property="renovation"/>
+		<result column="w_orientation" property="orientation"/>
+		<result column="w_price" property="price"/>
+		<result column="w_name" property="realname"/>
+		<result column="w_telnum" property="telnum"/>
+		<result column="showorhide" property="showorhide"/>
+		<association property="user" javaType="User">
+			<id column="u_id" property="uid"/>
+			<result column="u_username" property="username"/>
+			<result column="u_password" property="password"/>
+		</association>
+		<association property="province" javaType="Province">
+			<id column="p_id" property="pid" />
+			<result column="p_name" property="pname"/>
+		</association>
+		<association property="city" javaType="City">
+			<id column="c_id" property="cid"/>
+			<result column="c_name" property="cname"/>
+		</association>
+	</resultMap>
+	
+	<insert id="insertWantRent" parameterType="WantRent">
+		insert 
+		into renthouse.db_wantrent(w_id,w_housetype,w_renttype,w_renovationtype,w_orientation,w_price,w_name,w_telnum,user_id,provinceid,cityid,showorhide)
+		values(null,#{housetype},#{renttype},#{renovation},#{orientation},#{price},#{realname},#{telnum},#{user.uid},#{province.pid},#{city.cid},#{showorhide})
+	</insert>
+</mapper>
+

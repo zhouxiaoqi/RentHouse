@@ -24,4 +24,10 @@ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 		from renthouse.db_user
 		where u_username = #{username}
 	</select>
+	
+	<select id="login" parameterType="String" resultMap="UserMap">
+		select *
+		from renthouse.db_user
+		where u_username = #{0} and u_password = #{1}
+	</select>
 </mapper> 

@@ -17,4 +17,12 @@ public interface UserDao {
 	 */
 	User validaeUser(String username);
 	
+	/**
+	 * 登陆
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	User login(String username, String password);
+	
 }

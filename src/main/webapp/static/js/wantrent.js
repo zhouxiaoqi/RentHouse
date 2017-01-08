@@ -4,12 +4,18 @@ $(function($) {
 		data: {
 			togglemask: false
 		},
+		created(){
+			this.request();
+		},
 		methods: {
 			togglecity: function() {
 				this.togglemask = true;
 			},
 			closemask: function() {
 				this.togglemask = false;
+			},
+			request(){
+				
 			}
 		}
 	})

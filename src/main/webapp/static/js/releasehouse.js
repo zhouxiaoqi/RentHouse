@@ -133,13 +133,15 @@ $(function($) {
 					this.warninfo = "请完整填写房源信息!"
 				} else if(pic1 === '' && pic2 === '' && pic3 === '' && pic4 === '' && pic5 === '') {
 					this.warntip = true;
-					this.warninfo = "请至少上传一张房源图哦！"
+					this.warninfo = "一张房源图都不给？过分了！"
 				} else if(!reg.test(telnum)) {
 					this.warntip = true;
 					this.warninfo = "请输入正确的手机号码"
 				} else {
 					this.warntip = false;
-					this.warninfo = ""
+					this.warninfo = "";
+					$("#myform").submit();
+					
 				}
 			},
 			getcity:function(){

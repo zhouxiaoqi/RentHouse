@@ -40,15 +40,15 @@
 					<div class="release-form" id="release-form">
 						<div class="alert alert-danger" role="alert" v-show="warntip"
 							style="text-align: center;">{{warninfo}}</div>
-						<form action="#" method="post">
+						<form action="releasehouse/inserthouse.do" method="post" enctype="multipart/form-data" id="myform">
 							<div class="form-group house-location">
-								<label for=""><i>*</i>房源地区</label><br /> <select name=""
+								<label for=""><i>*</i>房源地区</label><br /> <select name="province.pid"
 									class="form-control input-sm" id="province" v-on:change="getcity">
 									<option value="">请选择</option>
 									<option v-for="province in provinces" v-bind:value="province.pid">
 										{{province.pname}}
 									</option>
-								</select> <select name="" class="form-control input-sm" id="city">
+								</select> <select name="city.cid" class="form-control input-sm" id="city">
 									<option value="">请选择</option>
 									<option v-for="city in cities" v-bind:value="city.cid">
 										{{city.cname}}
@@ -58,50 +58,50 @@
 							<br />
 							<div class="form-group">
 								<label for=""><i>*</i>房源小区详细地址</label> <input type="text"
-									class="form-control input-sm" name="" id="detail-address"
+									class="form-control input-sm" name="detailaddress" id="detail-address"
 									placeholder="请输入详细地址以及小区" />
 							</div>
 							<div class="form-group area">
 								<label for=""><i>*</i>面积|m²</label> <input type="text"
-									class="form-control input-sm" name="" id="area"
+									class="form-control input-sm" name="area" id="area"
 									placeholder="请输入面积" />
 							</div>
 							<div class="house-type">
-								<input type="text" class="form-control input-sm" name=""
+								<input type="text" class="form-control input-sm" name="room"
 									id="room" placeholder="几室" /> <label for=""><i>*</i>室</label>
 								&nbsp;&nbsp;&nbsp;&nbsp; <input type="text"
-									class="form-control input-sm" name="" id="office"
+									class="form-control input-sm" name="office" id="office"
 									placeholder="几厅" /> <label for=""><i>*</i>厅</label>
 							</div>
 							<br />
 							<div class="house-price">
-								<input type="text" class="form-control input-sm" name=""
+								<input type="text" class="form-control input-sm" name="price"
 									id="price" placeholder="租金" /> <label for=""><i>*</i>/月</label>
 							</div>
 							<br />
 							<div class="house-floor">
-								<input type="text" class="form-control input-sm" name=""
+								<input type="text" class="form-control input-sm" name="layer"
 									id="layer" /> <label for=""><i>*</i>层/共</label> &nbsp; <input
-									type="text" class="form-control input-sm" name=""
+									type="text" class="form-control input-sm" name="totallayer"
 									id="total-layer" /> <label for=""><i>*</i>层</label>
 							</div>
 							<br />
 							<div class="house-else">
-								<select name="" class="form-control input-sm" id="house-type">
+								<select name="housetype" class="form-control input-sm" id="house-type">
 									<option value="">房屋类型：必选</option>
 									<option value="平房">平房</option>
 									<option value="普通住宅">普通住宅</option>
 									<option value="酒店式公寓">酒店式公寓</option>
 									<option value="独栋别墅">独栋别墅</option>
 									<option value="其他">其他</option>
-								</select> &nbsp; <select name="" class="form-control input-sm"
+								</select> &nbsp; <select name="renovation" class="form-control input-sm"
 									id="renovation-type">
 									<option value="">装修：必选</option>
 									<option value="毛坯">毛坯</option>
 									<option value="普通装修">普通装修</option>
 									<option value="精装修">精装修</option>
 									<option value="豪华装修">豪华装修</option>
-								</select> &nbsp; <select name="" class="form-control input-sm"
+								</select> &nbsp; <select name="orientation" class="form-control input-sm"
 									id="orientation">
 									<option value="">朝向：必选</option>
 									<option value="东">东</option>
@@ -116,7 +116,7 @@
 							</div>
 							<br />
 							<div class="user-said">
-								<textarea name="" id="said" rows="4" cols=""
+								<textarea name="usersaid" id="said" rows="4" cols=""
 									class="form-control" style="resize: none;"
 									placeholder="让买家更好的了解您的房子！说点什么吧.."></textarea>
 							</div>
@@ -126,42 +126,42 @@
 									<label for="">房源图：更好的展示您的房源</label>
 								</div>
 								<div class="picture1" v-on:click="clickpic1">
-									<span v-show="hide1">+</span> <input type="file" name=""
+									<span v-show="hide1">+</span> <input type="file" name="files"
 										id="pic1" v-show="hidefile" /> <img v-bind:src="img1"
 										v-show="toggleimg1" alt="" />
 								</div>
 								<div class="picture2" v-on:click="clickpic2">
-									<span v-show="hide2">+</span> <input type="file" name=""
+									<span v-show="hide2">+</span> <input type="file" name="files"
 										id="pic2" v-show="hidefile" /> <img v-bind:src="img2"
 										v-show="toggleimg2" alt="" />
 								</div>
 								<div class="picture3" v-on:click="clickpic3">
-									<span v-show="hide3">+</span> <input type="file" name=""
+									<span v-show="hide3">+</span> <input type="file" name="files"
 										id="pic3" v-show="hidefile" /> <img v-bind:src="img3"
 										v-show="toggleimg3" alt="" />
 								</div>
 								<div class="picture4" v-on:click="clickpic4">
-									<span v-show="hide4">+</span> <input type="file" name=""
+									<span v-show="hide4">+</span> <input type="file" name="files"
 										id="pic4" v-show="hidefile" /> <img v-bind:src="img4"
 										v-show="toggleimg4" alt="" />
 								</div>
 								<div class="picture5" v-on:click="clickpic5">
-									<span v-show="hide5">+</span> <input type="file" name=""
+									<span v-show="hide5">+</span> <input type="file" name="files"
 										id="pic5" v-show="hidefile" /> <img v-bind:src="img5"
 										v-show="toggleimg5" alt="" />
 								</div>
 							</div>
 							<hr />
 							<div class="form-group">
-								<label for="">房源有效期至：</label> <input type="text" name=""
+								<label for="">房源有效期至：</label> <input type="text" name="date"
 									class="form-control input-sm" id="date" v-on:blur="datepicker" />
 							</div>
 							<div class="form-group has-warning">
-								<label for="">手机号码</label> <input type="tel" name="" id="telnum"
+								<label for="">手机号码</label> <input type="tel" name="telnum" id="telnum"
 									class="form-control input-sm" placeholder="留下您的联系方式" />
 							</div>
 							<div class="form-group has-warning">
-								<label for="">真实姓名</label> <input type="tel" name=""
+								<label for="">真实姓名</label> <input type="tel" name="realname"
 									id="realname" class="form-control input-sm"
 									placeholder="留下您的真实姓名" />
 							</div>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.renthouse.dao.ReleaseHouseDao">
+	<resultMap type="ReleaseHouse" id="ReleaseHouseMap">
+		<id column="r_id" property="rid" />
+		<result column="r_detailaddress" property="detailaddress" />
+		<result column="r_area" property="area" />
+		<result column="r_room" property="room" />
+		<result column="r_office" property="office" />
+		<result column="r_price" property="price" />
+		<result column="r_layer" property="layer" />
+		<result column="r_totallayer" property="totallayer" />
+		<result column="r_housetype" property="housetype" />
+		<result column="r_renovation" property="renovation" />
+		<result column="r_orientation" property="orientation" />
+		<result column="r_usersaid" property="usersaid" />
+		<result column="r_pic1" property="picture1" />
+		<result column="r_pic2" property="picture2" />
+		<result column="r_pic3" property="picture3" />
+		<result column="r_pic4" property="picture4" />
+		<result column="r_pic5" property="picture5" />
+		<result column="r_date" property="date" />
+		<result column="r_telnum" property="telnum" />
+		<result column="r_realname" property="realname" />
+		<result column="showorhide" property="showorhide" />
+		<association property="user" javaType="User">
+			<id column="u_id" property="uid" />
+			<result column="u_username" property="username" />
+			<result column="u_password" property="password" />
+		</association>
+		<association property="province" javaType="Province">
+			<id column="p_id" property="pid" />
+			<result column="p_name" property="pname" />
+		</association>
+		<association property="city" javaType="City">
+			<id column="c_id" property="cid" />
+			<result column="c_name" property="cname" />
+		</association>
+	</resultMap>
+
+
+	<insert id="insertHouse" parameterType="ReleaseHouse">
+		insert
+		into
+		renthouse.db_releasehouse(r_id,r_detailaddress,r_area,r_room,r_office,r_price,r_layer,r_totallayer,r_housetype,r_renovation,r_orientation,r_usersaid,r_pic1,r_pic2,r_pic3,r_pic4,r_pic5,r_date,r_telnum,r_realname,userid,provinceid,cityid,showorhide)
+		values(null,#{detailaddress},#{area},#{room},#{office},#{price},#{layer},#{totallayer},#{housetype},#{renovation},#{orientation},#{usersaid},#{picture1},#{picture2},#{picture3},#{picture4},#{picture5},#{date},#{telnum},#{realname},#{user.uid},#{province.pid},#{city.cid},#{showorhide})
+	</insert>
+</mapper>
