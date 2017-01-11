@@ -10,6 +10,13 @@ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 		<result column="u_password" property="password"/>
 	</resultMap>
 	
+	<resultMap type="Admin" id="AdminMap">
+		<id column="a_id" property="aid"/>
+		<result column="a_adminname" property="adminname"/>
+		<result column="a_password" property="password"/>
+	</resultMap>
+	
+	
 	<insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="uid">
 		<!-- <selectKey resultType="int" order="AFTER" keyProperty="uid">
 			select last_insert_id() as uid
@@ -30,4 +37,14 @@ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 		from renthouse.db_user
 		where u_username = #{0} and u_password = #{1}
 	</select>
+	
+	
+	<select id="admin_login" parameterType="String" resultMap="AdminMap">
+		select *
+		from db_admin
+		where a_adminname = #{0} and a_password = #{1}
+	</select>
+	
+	
+	
 </mapper> 

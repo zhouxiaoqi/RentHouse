@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.renthouse.dao.UserDao;
+import com.renthouse.entities.Admin;
 import com.renthouse.entities.User;
 import com.renthouse.service.UserService;
 
@@ -28,6 +29,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User login(String username, String password) {
 		return userDao.login(username, password);
+	}
+
+	@Override
+	public Admin admin_login(String adminname, String password) {
+		return userDao.admin_login(adminname, password);
 	}
 
 	

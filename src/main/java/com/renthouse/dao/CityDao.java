@@ -12,5 +12,7 @@ public interface CityDao {
 	 * @return
 	 */
 	List<City> gettheCities(int pid);
+	
+	
 
 }

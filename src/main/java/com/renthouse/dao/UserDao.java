@@ -1,5 +1,6 @@
 package com.renthouse.dao;
 
+import com.renthouse.entities.Admin;
 import com.renthouse.entities.User;
 
 public interface UserDao {
@@ -24,5 +25,13 @@ public interface UserDao {
 	 * @return
 	 */
 	User login(String username, String password);
+	
+	/**
+	 * 管理员登陆
+	 * @param adminname
+	 * @param password
+	 * @return
+	 */
+	Admin admin_login(String adminname,String password);
 	
 }

@@ -2,20 +2,19 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.renthouse.dao.CityDao">
 	<resultMap type="City" id="CityMap">
-		<id column="c_id" property="cid"/>
-		<result column="c_name" property="cname"/>
+		<id column="c_id" property="cid" />
+		<result column="c_name" property="cname" />
 		<association property="province" javaType="Province">
-			<id column="p_id" property="pid"/>
-			<result column="p_name" property="pname"/>
+			<id column="p_id" property="pid" />
+			<result column="p_name" property="pname" />
 		</association>
 	</resultMap>
-	
 	<select id="gettheCities" parameterType="int" resultMap="CityMap">
-		select * 
-		from renthouse.db_city
+		select
+		c.* ,p.*
+		from db_city as c,db_province as p
 		where province_id = #{pid}
 	</select>
 </mapper>

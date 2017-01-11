@@ -7,7 +7,8 @@ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 <mapper namespace="com.renthouse.dao.ReleaseWantRentDao">
 	<resultMap type="WantRent" id="WantRentMap">
 		<id column="w_id" property="wid"/>
-		<result column="w_housetype" property="housetype"/>
+		<result column="w_room" property="room"/>
+		<result column="w_office" property="office"/>
 		<result column="w_renttype" property="renttype"/>
 		<result column="w_renovationtype" property="renovation"/>
 		<result column="w_orientation" property="orientation"/>
@@ -32,8 +33,32 @@ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 	
 	<insert id="insertWantRent" parameterType="WantRent">
 		insert 
-		into renthouse.db_wantrent(w_id,w_housetype,w_renttype,w_renovationtype,w_orientation,w_price,w_name,w_telnum,user_id,provinceid,cityid,showorhide)
-		values(null,#{housetype},#{renttype},#{renovation},#{orientation},#{price},#{realname},#{telnum},#{user.uid},#{province.pid},#{city.cid},#{showorhide})
+		into renthouse.db_wantrent(w_id,w_room,w_office,w_renttype,w_renovationtype,w_orientation,w_price,w_name,w_telnum,user_id,provinceid,cityid,showorhide)
+		values(null,#{room},#{office},#{renttype},#{renovation},#{orientation},#{price},#{realname},#{telnum},#{user.uid},#{province.pid},#{city.cid},#{showorhide})
 	</insert>
+	
+	<select id="getAllWantRent" resultMap="WantRentMap">
+		select w.*,c.*,u.u_id
+		from db_wantrent as w,db_city as c, db_user as u
+		where w.showorhide = 1 and w.cityid = c.c_id and w.user_id = u.u_id
+	</select>
+	
+	<select id="adminGetAllWantRent" resultMap="WantRentMap">
+		select w.*,c.*,u.u_id
+		from db_wantrent as w,db_city as c, db_user as u
+		where  w.cityid = c.c_id and w.user_id = u.u_id
+	</select>
+	
+	<update id="update_show" parameterType="int">
+		update db_wantrent
+		set showorhide = 1
+		where w_id = #{id}
+	</update>
+	
+	<update id="update_hide" parameterType="int">
+		update db_wantrent
+		set showorhide = 0
+		where w_id = #{id}
+	</update>
 </mapper>
 

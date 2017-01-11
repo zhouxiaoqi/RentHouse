@@ -25,15 +25,15 @@
         <div class="leftnav-title" style="background-color: #2C3E50"><strong><span class="icon-list"></span>菜单列表</strong></div>
         <h2><span class="icon-user"></span>基本设置</h2>
         <ul style="display:block">
-            <li><a href="info.jsp" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
-            <li><a href="pass.jsp" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
-            <li><a href="banner.jsp" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin_jsp/info.jsp" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin_jsp/pass.jsp" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin_jsp/banner.jsp" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>
         </ul>
         <h2><span class="icon-pencil-square-o"></span>栏目管理</h2>
         <ul>
-            <li><a href="user.jsp" target="right"><span class="icon-caret-right"></span>用户管理</a></li>
-            <li><a href="house.jsp" target="right"><span class="icon-caret-right"></span>房源管理</a></li>
-            <li><a href="wantrent.jsp" target="right"><span class="icon-caret-right"></span>求租信息管理</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin_jsp/user.jsp" target="right"><span class="icon-caret-right"></span>用户管理</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin_jsp/house.jsp" target="right"><span class="icon-caret-right"></span>房源管理</a></li>
+            <li><a href="${pageContext.request.contextPath}/admin_jsp/wantrent.jsp" target="right"><span class="icon-caret-right"></span>求租信息管理</a></li>
         </ul>
     </div>
     <script type="text/javascript">
@@ -50,7 +50,7 @@
         });
     </script>
     <div class="admin">
-        <iframe scrolling="auto" src="info.jsp" name="right" width="100%" height="100%"></iframe>
+        <iframe scrolling="auto" src="${pageContext.request.contextPath}/admin_jsp/info.jsp" name="right" width="100%" height="100%"></iframe>
     </div>
 </body>
 </html>

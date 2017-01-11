@@ -42,7 +42,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" style="color: #22B24C;">宜客租房</a>
+				<a class="navbar-brand" href="user/index.do" style="color: #22B24C;">宜客租房</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->

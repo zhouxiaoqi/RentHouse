@@ -1,10 +1,14 @@
 package com.renthouse.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.renthouse.entities.User;
 import com.renthouse.entities.WantRent;
@@ -51,8 +55,43 @@ public class ReleaseWantRentController {
 		User user = (User) session.getAttribute("user");
 		wantRent.setUser(user);
 		System.out.println(wantRent);
-		int result = releaseWantRentService.insertWantRent(wantRent);
+		releaseWantRentService.insertWantRent(wantRent);
 		return "jsp/successPage";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getallwantrent")
+	public List<WantRent> getAllWantRent(){
+		List<WantRent> wantRents = releaseWantRentService.getAllWantRent();
+		return wantRents;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/admingetwantrent")
+	public List<WantRent> adminGetWantRent(){
+		List<WantRent> wantRents = releaseWantRentService.adminGetAllWantRent();
+		return wantRents;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/updateshow/{id}")
+	public String updateShow(@PathVariable("id") int wid){
+		int result = releaseWantRentService.update_show(wid);
+		if(result == 1){
+			return "操作成功";
+		}
+		return "操作失败";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/updatehide/{id}")
+	public String updateHide(@PathVariable("id") int wid){
+		int result = releaseWantRentService.update_hide(wid);
+		if(result == 1){
+			return "操作成功";
+		}
+		return "操作失败";
 	}
 
 }

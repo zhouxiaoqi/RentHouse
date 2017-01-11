@@ -48,4 +48,59 @@ PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
 		renthouse.db_releasehouse(r_id,r_detailaddress,r_area,r_room,r_office,r_price,r_layer,r_totallayer,r_housetype,r_renovation,r_orientation,r_usersaid,r_pic1,r_pic2,r_pic3,r_pic4,r_pic5,r_date,r_telnum,r_realname,userid,provinceid,cityid,showorhide)
 		values(null,#{detailaddress},#{area},#{room},#{office},#{price},#{layer},#{totallayer},#{housetype},#{renovation},#{orientation},#{usersaid},#{picture1},#{picture2},#{picture3},#{picture4},#{picture5},#{date},#{telnum},#{realname},#{user.uid},#{province.pid},#{city.cid},#{showorhide})
 	</insert>
+
+	<select id="getAllHouse" resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.showorhide = 1 and r.cityid = c.c_id and r.userid = u.u_id
+	</select>
+	
+	<select id="adminGetAllHouse" resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.cityid = c.c_id and r.userid = u.u_id
+	</select>
+	
+	<select id="getSingleHouse" parameterType="int" resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.cityid = c.c_id and r.userid = u.u_id and r_id = #{rid}
+	</select>
+	
+	<update id="update_show" parameterType="int">
+		update db_releasehouse
+		set showorhide = 1
+		where r_id = #{id}
+	</update>
+	
+	<update id="update_hide" parameterType="int">
+		update db_releasehouse
+		set showorhide = 0
+		where r_id = #{id}
+	</update>
+	
+	<select id="getHousesByProvince" parameterType="int" resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.showorhide = 1 and r.cityid = c.c_id and r.userid = u.u_id and r.provinceid = #{pid}
+	</select>
+	
+	<select id="getHousesByCity" parameterType="int" resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.showorhide = 1 and r.cityid = c.c_id and r.userid = u.u_id and r.cityid = #{cid}
+	</select>
+	
+	<select id="getHousesByPrice" parameterType="double"  resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.showorhide = 1 and r.cityid = c.c_id and r.userid = u.u_id and r.r_price between #{0} and #{1}
+	</select>
+	
+	<select id="getHousesByRoom" parameterType="int" resultMap="ReleaseHouseMap">
+		select r.*,c.*,u.u_username,u.u_id
+		from db_releasehouse as r,db_city as c ,db_user as u
+		where r.showorhide = 1 and r.cityid = c.c_id and r.userid = u.u_id and r.r_room = #{room}
+	</select>
+	
 </mapper>

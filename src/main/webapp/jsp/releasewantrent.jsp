@@ -54,9 +54,9 @@
 						</div>
 						<br />
 						<div class="house-type">
-							<label for=""><i>*</i>户型要求：</label> <input type="text" name="housetype"
+							<label for=""><i>*</i>户型要求：</label> <input type="text" name="room"
 								id="room" class="form-control input-sm" />&nbsp;<span>室</span>
-							<input type="text" name="" id="office"
+							<input type="text" name="office" id="office"
 								class="form-control input-sm" />&nbsp;<span>厅</span>
 						</div>
 						<br />

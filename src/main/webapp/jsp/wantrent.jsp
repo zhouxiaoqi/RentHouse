@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -15,6 +16,7 @@
 <script src="static/jquery/jquery-3.1.0.min.js"></script>
 <script src="static/bootstrap/bootstrap.min.js"></script>
 <script src="static/vue/vue.js"></script>
+<script src="static/vue/vue-resource.js"></script>
 <script src="static/js/wantrent.js"></script>
 <link rel="stylesheet"
 	href="static/bootstrap/bootstrap_simple.min.css">
@@ -100,7 +102,7 @@
 	<div class="grid-fluid">
 		<div class="col-10-12 push-1-12 house-list" id="rentcontent">
 			<div class="col-10-12">
-				<div class="cent">
+				<div class="cent" v-for="wantrent in wantrents">
 					<div class="col-3-12">
 						<div class="header-img">
 							<img src="static/image/user_128px.png" alt="" />
@@ -111,20 +113,32 @@
 							<h4>环境一定要好，交通方便。可长租</h4>
 						</div>
 						<div class="house-info">
-							<p>理想位置：小龙坎</p>
-							<p>户型要求：1室0厅</p>
-							<p>租赁方式：可合租可整租</p>
-							<p>装修条件：不限</p>
-							<p>房屋朝向：不限</p>
+							<p>理想位置：{{wantrent.city.cname}}</p>
+							<p>户型要求：{{wantrent.room}}室{{wantrent.office}}厅</p>
+							<p>租赁方式：{{wantrent.renttype}}</p>
+							<p>装修条件：{{wantrent.renovation}}</p>
+							<p>房屋朝向：{{wantrent.orientation}}</p>
 						</div>
 						<div class="house-price">
-							<span>期望租金：<strong>￥ 1000/月</strong></span>
+							<span>期望租金：<strong>￥ {{wantrent.price}}/月</strong></span>
 						</div>
 						<div class="user-name">
-							<span>联系人：周奇</span> <span>|</span> <span>联系方式：15223532170</span>
+							<span>联系人：{{wantrent.realname}}</span> 
+							<span>|</span> 
+							<c:choose>
+								<c:when test="${user != null}">
+									<span>联系方式：{{wantrent.telnum}}</span>
+								</c:when>
+								<c:otherwise>
+									<span><a href="user/loginregist.do">登录后查看</a></span>
+								</c:otherwise>
+							</c:choose>
+							
 						</div>
 					</div>
 				</div>
+				
+				
 			</div>
 
 			<div class="col-2-12">

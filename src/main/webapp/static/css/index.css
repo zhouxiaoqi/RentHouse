@@ -56,7 +56,9 @@
  .middle-nav .more .more-title {
  	float: left;
  }
- 
+ .middle-nav a{
+ 	cursor: pointer;
+ }
  .middle-nav .region-content a,
  .middle-nav .price-content a,
  .middle-nav .type-content a,
@@ -86,6 +88,10 @@
  
  .middle-nav hr {
  	border: 1px dotted #CECECC;
+ }
+ .middle-nav a:ACTIVE{
+ 	background: #EB5055;
+ 	color: #F6F9F9;
  }
  
  .tip span {
